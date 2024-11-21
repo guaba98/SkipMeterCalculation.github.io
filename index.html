@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skip 계산기</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Skip 계산기</h1>
+        <form id="calculator-form">
+            <label>설비 위치(M): <input type="number" id="설비위치" step="0.01"></label>
+            <label>지연 시간(Sec): <input type="number" id="지연시간" step="0.01"></label>
+            <label>검사 종료 거리(M): <input type="number" id="검사종료거리" step="0.01"></label>
+            <label>설비 속도(M): <input type="number" id="설비속도" step="0.01"></label>
+            <button type="button" id="calculate-btn">계산하기</button>
+        </form>
+        <div class="results">
+            <label>검사 시작 지연시간(Sec): <input type="text" id="검사시작지연시간" readonly></label>
+            <label>검사 종료 지연시간(Sec): <input type="text" id="검사종료지연시간" readonly></label>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
