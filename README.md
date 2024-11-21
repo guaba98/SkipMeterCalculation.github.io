@@ -9,3 +9,6 @@
 ## 🧮계산 방식
 - 검사 시작 지연시간 = (설비위치 / 분당속도) + 지연시간;
 - 검사 종료 지연시간 = (설비위치 / 분당속도) - (검사구간 정지거리 / 분당속도) - 지연시간
+
+## 💻UI
+![sliding_skip_example](https://github.com/user-attachments/assets/7520c8f9-5549-4b21-9a59-5e3fdc76f992)
