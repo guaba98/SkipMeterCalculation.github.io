@@ -107,8 +107,8 @@ input[readonly] {
 
 .close-btn {
     position: absolute; /* 부모 요소 기준으로 위치 지정 */
-    top: 10px; /* 창의 위쪽에서 10px */
-    right: 10px; /* 창의 오른쪽에서 10px */
+    top: 8px; /* 창의 위쪽에서 10px */
+    right: 8px; /* 창의 오른쪽에서 10px */
     background: #f44336; /* 닫기 버튼 배경색 */
     color: white;
     border: none;
