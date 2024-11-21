@@ -96,7 +96,7 @@ input[readonly] {
 }
 
 .tooltip img {
-    max-width: 70%;/*width: 100px;*/ /* 원하는 크기로 설정 */
+    max-width: 50%;/*width: 100px;*/ /* 원하는 크기로 설정 */
     height: auto;
 }
 
