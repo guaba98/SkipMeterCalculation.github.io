@@ -106,21 +106,21 @@ input[readonly] {
 }
 
 .close-btn {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    background: #f44336; /* 빨간색 배경 */
+    position: absolute; /* 부모 요소 기준으로 위치 지정 */
+    top: 10px; /* 창의 위쪽에서 10px */
+    right: 10px; /* 창의 오른쪽에서 10px */
+    background: #f44336; /* 닫기 버튼 배경색 */
     color: white;
     border: none;
     border-radius: 50%;
     width: 25px;
     height: 25px;
     font-size: 16px;
-    line-height: 25px;
     text-align: center;
     cursor: pointer;
 }
 
 .close-btn:hover {
-    background: #d32f2f; /* 버튼에 마우스 올렸을 때 색상 변경 */
+    background: #d32f2f; /* 마우스 올릴 때 색상 변경 */
 }
+
