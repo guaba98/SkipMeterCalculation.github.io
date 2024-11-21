@@ -85,7 +85,7 @@ input[readonly] {
     display: none; /* 기본적으로 숨김 */
     position: absolute;
     top: 50px;
-    left: 50%;
+    left: 80%;
     transform: translateX(-50%);
     background: white;
     border: 1px solid #ccc;
