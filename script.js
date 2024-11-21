@@ -20,6 +20,8 @@ document.getElementById('calculate-btn').addEventListener('click', () => {
 
 const infoIcon = document.querySelector('.info-icon');
 const tooltip = document.querySelector('.tooltip');
+const closeButton = document.querySelector('.close-btn');
+
 // 클릭 시 툴팁 표시/숨김
 infoIcon.addEventListener('click', () => {
     if (tooltip.style.display === 'block') {
@@ -27,4 +29,9 @@ infoIcon.addEventListener('click', () => {
     } else {
         tooltip.style.display = 'block';
     }
+});
+
+// 닫기 버튼을 눌렀을 때 툴팁 숨김
+closeButton.addEventListener('click', () => {
+    tooltip.style.display = 'none';
 });
