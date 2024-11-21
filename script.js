@@ -17,3 +17,14 @@ document.getElementById('calculate-btn').addEventListener('click', () => {
     document.getElementById('검사시작지연시간').value = 검사시작지연시간.toFixed(2);
     document.getElementById('검사종료지연시간').value = 검사종료지연시간.toFixed(2);
 });
+
+const infoIcon = document.querySelector('.info-icon');
+const tooltip = document.querySelector('.tooltip');
+// 클릭 시 툴팁 표시/숨김
+infoIcon.addEventListener('click', () => {
+    if (tooltip.style.display === 'block') {
+        tooltip.style.display = 'none';
+    } else {
+        tooltip.style.display = 'block';
+    }
+});
