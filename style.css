@@ -14,7 +14,7 @@ body {
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: left;
+    text-align: center;
     width: 335px;
 }
 
@@ -96,6 +96,13 @@ input[readonly] {
     width: 400px;  /* 이미지 크기 */
     height: auto;
     margin-bottom: 10px; /* 이미지와 텍스트 간격 */
+}
+
+.tooltip-text {
+    text-align: left; /* 텍스트 왼쪽 정렬 */
+    font-size: 14px; /* 텍스트 크기 */
+    color: #333; /* 텍스트 색상 */
+    margin: 0; /* 기본 여백 제거 */
 }
 
 .tooltip p {
