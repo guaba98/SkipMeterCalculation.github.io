@@ -1,6 +1,6 @@
 # SkipMeterCalculation
 설비 속도, 파라미터에 따른 검사 시작&amp;종료 계산기 입니다.
-<br>[사이트 바로가기](https://guaba98.github.io/SkipMeterCalculation.github.io/)
+<br>[🔗사이트 바로가기](https://guaba98.github.io/SkipMeterCalculation.github.io/)
 
 ## 📃용어 설명
 - 설비위치: 코팅다이부터 우리 설비까지의 거리값
