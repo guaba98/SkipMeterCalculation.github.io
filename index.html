@@ -7,30 +7,67 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>
-            Skip 계산기
-            <span class="info-icon">?</span>
-        </h1>
-        <div class="tooltip">
-            <button class="close-btn">X</button>
-            <img src="sliding_skip.jpg" alt="skip 설명 이미지">
-            <p class="tooltip-text">- 설비위치: 코팅다이부터 우리 설비까지의 거리값<br>- 지연시간: 거리값이 오차가 있을 수 있으니 일부 수정할 수 있도록 하는 부분<br>- 검사구간 정지거리: 검사 종료시 영향이 있음
-                <br>- 검사 시작 지연시간 = (설비위치 / 분당속도) + 지연시간<br>- 검사 종료 지연시간 = (설비위치 / 분당속도) - (검사구간 정지거리 / 분당속도) - 지연시간
-            </p>
+    <main class="container">
+        <div class="language-switcher" role="radiogroup" aria-label="Language">
+            <label>
+                <input type="radio" name="language" value="ko" checked>
+                <span>한국어</span>
+            </label>
+            <label>
+                <input type="radio" name="language" value="en">
+                <span>English</span>
+            </label>
         </div>
-        <form id="calculator-form">
-            <label>설비 위치(M): <input type="number" id="설비위치" step="0.01"></label>
-            <label>지연 시간(Sec): <input type="number" id="지연시간" step="0.01"></label>
-            <label>검사 종료 거리(M): <input type="number" id="검사종료거리" step="0.01"></label>
-            <label>설비 속도(M): <input type="number" id="설비속도" step="0.01"></label>
-            <button type="button" id="calculate-btn">계산하기</button>
+
+        <header class="header">
+            <h1 data-i18n="title">Skip 계산기</h1>
+            <button type="button" class="info-icon" aria-expanded="false" data-i18n-attr="aria-label:helpButton">?</button>
+        </header>
+
+        <section class="tooltip" aria-hidden="true">
+            <button type="button" class="close-btn" data-i18n-attr="aria-label:closeButton">X</button>
+            <img src="sliding_skip.jpg" alt="Skip 설명 이미지" data-i18n-attr="alt:helpImageAlt">
+            <div class="tooltip-text">
+                <p data-i18n="helpEquipmentPosition">- 설비 위치: 코팅 다이부터 슬라이딩 설비까지의 거리값</p>
+                <p data-i18n="helpDelayTime">- 지연 시간: 거리값이 오차가 있을 때 임의로 보정할 수 있도록 하는 값</p>
+                <p data-i18n="helpInspectStopDistance">- 검사구간 정지거리: 검사 종료에 영향을 주는 거리값</p>
+                <p data-i18n="helpStartFormula">- 검사 시작 지연 시간 = (설비 위치 / 분당 속도) + 지연 시간</p>
+                <p data-i18n="helpEndFormula">- 검사 종료 지연 시간 = (설비 위치 / 분당 속도) - (검사구간 정지거리 / 분당 속도) - 지연 시간</p>
+            </div>
+        </section>
+
+        <form id="calculator-form" novalidate>
+            <label for="equipmentPosition">
+                <span data-i18n="equipmentPosition">설비 위치(M)</span>
+                <input type="number" id="equipmentPosition" step="0.01" inputmode="decimal">
+            </label>
+            <label for="delayTime">
+                <span data-i18n="delayTime">지연 시간(Sec)</span>
+                <input type="number" id="delayTime" step="0.01" inputmode="decimal">
+            </label>
+            <label for="inspectStopDistance">
+                <span data-i18n="inspectStopDistance">검사구간 정지거리(M)</span>
+                <input type="number" id="inspectStopDistance" step="0.01" inputmode="decimal">
+            </label>
+            <label for="equipmentSpeed">
+                <span data-i18n="equipmentSpeed">설비 속도(M/Min)</span>
+                <input type="number" id="equipmentSpeed" step="0.01" inputmode="decimal">
+            </label>
+            <button type="button" id="calculate-btn" data-i18n="calculateButton">계산하기</button>
         </form>
-        <div class="results">
-            <label>검사 시작 지연시간(Sec): <input type="text" id="검사시작지연시간" readonly></label>
-            <label>검사 종료 지연시간(Sec): <input type="text" id="검사종료지연시간" readonly></label>
-        </div>
-    </div>
+
+        <section class="results" aria-live="polite">
+            <p id="error-message" class="error-message" hidden></p>
+            <label for="startDelayTime">
+                <span data-i18n="startDelayTime">검사 시작 지연 시간(Sec)</span>
+                <input type="text" id="startDelayTime" readonly>
+            </label>
+            <label for="endDelayTime">
+                <span data-i18n="endDelayTime">검사 종료 지연 시간(Sec)</span>
+                <input type="text" id="endDelayTime" readonly>
+            </label>
+        </section>
+    </main>
     <script src="script.js"></script>
 </body>
 </html>
