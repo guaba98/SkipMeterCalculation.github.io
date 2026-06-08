@@ -2,6 +2,9 @@ const translations = {
     ko: {
         pageTitle: 'Skip 계산기',
         title: 'Skip 계산기',
+        languageSwitcherLabel: '언어 선택',
+        languageKorean: '한국어',
+        languageEnglish: 'English',
         helpButton: '도움말 열기',
         closeButton: '도움말 닫기',
         helpImageAlt: 'Skip 계산 설명 이미지',
@@ -23,6 +26,9 @@ const translations = {
     en: {
         pageTitle: 'Skip Calculator',
         title: 'Skip Calculator',
+        languageSwitcherLabel: 'Language selection',
+        languageKorean: 'Korean',
+        languageEnglish: 'English',
         helpButton: 'Open help',
         closeButton: 'Close help',
         helpImageAlt: 'Skip calculation reference image',
@@ -58,13 +64,30 @@ const elements = {
     infoIcon: document.querySelector('.info-icon'),
     tooltip: document.querySelector('.tooltip'),
     closeButton: document.querySelector('.close-btn'),
+    languageSwitcher: document.querySelector('.language-switcher'),
     languageInputs: document.querySelectorAll('input[name="language"]')
 };
 
 let currentLanguage = getInitialLanguage();
 
+function getSavedLanguage() {
+    try {
+        return localStorage.getItem(languageStorageKey);
+    } catch (error) {
+        return null;
+    }
+}
+
+function saveLanguage(language) {
+    try {
+        localStorage.setItem(languageStorageKey, language);
+    } catch (error) {
+        // Language switching should still work when localStorage is unavailable.
+    }
+}
+
 function getInitialLanguage() {
-    const savedLanguage = localStorage.getItem(languageStorageKey);
+    const savedLanguage = getSavedLanguage();
     return supportedLanguages.includes(savedLanguage) ? savedLanguage : 'ko';
 }
 
@@ -97,7 +120,7 @@ function applyLanguage(language) {
         validateInputs();
     }
 
-    localStorage.setItem(languageStorageKey, currentLanguage);
+    saveLanguage(currentLanguage);
 }
 
 function getNumericValue(input) {
@@ -162,9 +185,29 @@ function setTooltipVisibility(isVisible) {
 elements.calculateButton.addEventListener('click', calculateDelayTimes);
 
 elements.languageInputs.forEach((input) => {
+    input.addEventListener('click', (event) => {
+        applyLanguage(event.target.value);
+    });
+
+    input.addEventListener('input', (event) => {
+        applyLanguage(event.target.value);
+    });
+
     input.addEventListener('change', (event) => {
         applyLanguage(event.target.value);
     });
+});
+
+elements.languageSwitcher.addEventListener('click', (event) => {
+    const label = event.target.closest('label');
+    if (!label) {
+        return;
+    }
+
+    const input = label.querySelector('input[name="language"]');
+    if (input) {
+        applyLanguage(input.value);
+    }
 });
 
 elements.infoIcon.addEventListener('click', () => {

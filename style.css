@@ -17,7 +17,7 @@ body {
 .container {
     position: relative;
     width: min(100%, 390px);
-    padding: 50px 28px 30px;
+    padding: 46px 28px 30px;
     border-radius: 8px;
     background: #ffffff;
     box-shadow: 0 10px 30px rgba(31, 41, 55, 0.14);
@@ -26,31 +26,34 @@ body {
 
 .language-switcher {
     position: absolute;
-    top: 14px;
-    right: 16px;
+    top: 10px;
+    right: 12px;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 6px 8px;
-    border: 1px solid #d8def8;
-    border-radius: 6px;
-    background: #f8faff;
-    font-size: 12px;
+    justify-content: flex-end;
+    gap: 8px;
+    padding: 3px 4px;
+    border: 0;
+    background: transparent;
+    font-size: 11px;
     line-height: 1;
+    white-space: nowrap;
 }
 
 .language-switcher label {
     display: inline-flex;
     align-items: center;
-    gap: 4px;
+    gap: 3px;
     margin: 0;
     cursor: pointer;
 }
 
 .language-switcher input {
-    width: auto;
+    width: 11px;
+    height: 11px;
     margin: 0;
     padding: 0;
+    cursor: pointer;
 }
 
 .header {
@@ -217,12 +220,12 @@ input[readonly] {
     }
 
     .container {
-        padding: 58px 20px 24px;
+        padding: 48px 20px 24px;
     }
 
     .language-switcher {
-        left: 20px;
-        right: 20px;
+        left: auto;
+        right: 12px;
         justify-content: flex-end;
     }
 
